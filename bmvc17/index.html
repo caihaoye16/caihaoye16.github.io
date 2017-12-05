@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Cross-modality Training to Learn Cardiac Motion Flow for SSFP MRI images</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+    }
+
+    /* Remove the navbar's default margin-bottom and rounded borders */
+
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Add a gray background color and some padding to the footer */
+
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+
+    #ours {
+      font-weight: bold;
+    }
+
+    .glyphicon.glyphicon-arrow-down.main_arr {
+      font-size: 75px;
+    }
+
+    .glyphicon.glyphicon-option-horizontal.main_arr {
+      top: 50px;
+      font-size: 75px;
+    }
+
+    .glyphicon {
+      display: block;
+      text-align: center;
+    }
+
+    #noise {
+      text-align: center;
+      vertical-align: bottom;
+    }
+
+    hr {
+      border-top-color: #000000;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <!-- <a class="navbar-brand" href="#">Portfolio</a> -->
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#abstract">Abstract</a></li>
+          <li><a href="#qua_comp">Video</a></li>
+          <li><a href="#our_illus">Pipeline Overview</a></li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="jumbotron" style="background:transparent !important" id="title">
+    <div class="container text-center">
+      <h2>Cross-modality Training to Learn Cardiac Motion Flow for SSFP MRI images</h2>
+      <!-- <h3>Overview</h3> -->
+      <p>In process of submission</p>
+      <center><img src="overview.png" class="img-responsive" style="width:60%" alt="Image"></center>
+      <!-- <p>The entire workflow of our method using DENSE motion MRI technique as supervision to learn cardiac flow using SSFP MRI.</p> -->
+    </div>
+  </div>
+
+  <div class="jumbotron" id="abstract">
+    <div class="container text-center">
+      <h2>Abstract</h2>
+      <p align="justify">
+        Accurate cardiac motion estimation from standard cardiac MRI is of great value in clinical diagnosis. Current cardiac motion methods using displacement tracking in Steady State Free Precision (SSFP) MRI suffers significant limitations in reproducible accuracy and manual intervention. Alternative advanced MRI technique Displacement Encoding with Simulated Echos (DENSE MRI) can provide accurate 3D motion measures, which can supervise SSFP to produce more reliable cardiac motion solution. In this work, we present the first approach to learn cardiac flow in SSFP domain by using DENSE data as cross-modality supervision. We first retrieve 2D correspondences in SSFP from DENSE motion modality, based on an accurate spatial-temporal cross-modality registration. Then we train a feature embedding supervised by the correspondences from DENSE and propose a flow algorithm using the learned feature embedding. Furthermore, we present a purely self-supervised method to retrieve accurate segmentation from cardiac motion, which is then fused to generate sharp cardiac flow free from background noise. Our learned flow representation is efficient and fully automated at the testing stage, which shows favorable improvements both qualitatively and quantitatively compared to both classical and state-of-art flow methods. Our method efficiently leverages the limited amount of data from cross-modality supervision, which we believe will provide wider insight more than purely solving cardiac motion estimation, but for general medical image problem such as correspondence learning as well.
+      </p>
+
+      <p align="left">
+        <br>
+        <u>Introduction slides</u>: <a href="">intro.pptx</a> 
+      </p>
+
+    </div>
+  </div>
+
+
+  <div class="container text-center" id="qua_comp">
+    <h2>Flow Results</h2>
+
+    <div class="row">
+      <div class="col-sm-2 col-sm-offset-2">
+
+      </div>
+      <div class="col-sm-2">
+
+        <video width="400" autoplay loop>
+        <source src="HT0008b-8-ours-flow.mp4" type="video/mp4">
+
+      </video>
+      </div>
+      <div class="col-sm-2">
+
+        <video width="400" autoplay loop>
+        <source src="HT0012b-2-ours-flow.mp4" type="video/mp4">
+
+      </video>
+      </div>
+      <div class="col-sm-2">
+
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-sm-2 col-sm-offset-2">
+
+        <video width="400" autoplay loop>
+        <source src="HT0008b-2-ours-flow.mp4" type="video/mp4">
+
+      </video>
+      </div>
+      <div class="col-sm-2">
+
+        <video width="400" autoplay loop>
+        <source src="HT0008b-8-ours-flow.mp4" type="video/mp4">
+
+      </video>
+      </div>
+      <div class="col-sm-2">
+
+        <video width="400" autoplay loop>
+        <source src="HT0012b-2-ours-flow.mp4" type="video/mp4">
+
+      </video>
+      </div>
+      <div class="col-sm-2">
+        <video width="400" autoplay loop>
+        <source src="HT0012b-6-ours-flow.mp4" type="video/mp4">
+
+      </video>
+      </div>
+
+    </div>
+
+    <h2>Video Demo</h2>
+
+    <video width="400" controls>
+    <source src="demo.mp4" type="video/mp4">
+
+    </video>
+ 
+  </div>
+
+
+  <div class="jumbotron">
+    <div class="container text-center" id="our_illus">
+      <h2 class="text-center">Pipeline Overview</h2>
+
+
+    </div>
+  </div>
+
+
+  <!-- <footer class="container-fluid text-center">
+  <p>Footer Text</p>
+</footer> -->
+
+</body>
+<script>
+  $(".nav li").on("click", function() {
+    $(".nav li").removeClass("active");
+    $(this).addClass("active");
+  });
+</script>
+
+</html>
