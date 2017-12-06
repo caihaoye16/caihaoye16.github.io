@@ -174,11 +174,14 @@
     </div>
 
     <h2>Video Demo</h2>
+    May be better viewed in powerpoint slides: <br>
+    PLEASE DO NOT SHARE.
 
     <video width="400" controls>
     <source src="demo.mp4" type="video/mp4">
 
     </video>
+
  
   </div>
 
@@ -187,6 +190,20 @@
     <div class="container text-center" id="our_illus">
       <h2 class="text-center">Pipeline Overview</h2>
 
+      <p>1. Conduct spatial-temporal registration for the two modalities</p>
+      <center><img src="registration.png" class="img-responsive" style="width:60%" alt="Image"></center><br>
+      <span class="glyphicon glyphicon-arrow-down main_arr"></span>
+
+      <p>2. Train a Siamese Network to learn robust feature embeddings for SSFP image patches</p>
+      <center><img src="siamese.png" class="img-responsive" style="width:35%" alt="Image"></center><br>
+      <span class="glyphicon glyphicon-arrow-down main_arr"></span>
+
+      <p>3. Conduct patch matching and edge-preserving interpolation to produce dense flow fields</p>
+      <center><img src="patch_matching.png" class="img-responsive" style="width:60%" alt="Image"></center><br>
+      <span class="glyphicon glyphicon-arrow-down main_arr"></span>
+
+      <p>4. A self-supervised approach to retrieve heart segmentation based on aggregated motion flow magnitude to get the ROI and get rid of background noise</p>
+      <center><img src="segmentation.png" class="img-responsive" style="width:60%" alt="Image"></center><br>
 
     </div>
   </div>
